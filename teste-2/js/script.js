@@ -39,6 +39,7 @@ document.addEventListener('keyup',(e)=>{
 gameLoop()
 
 function reset(){
+    new Audio('hit.mp3').play()
     clearInterval(ID)
     Vx = -1
     Vy = -1
@@ -62,15 +63,32 @@ function gameLoop(){
                 return
             }
             if(marginTop(ball)<0 || (marginTop(ball)+20) > 544){
+                new Audio('ping-ponp.mp3').play()
                 Vy = -Vy
             }
 
             let paddle = (marginLeft(ball)+10<544) ? userPaddle : compPaddle
 
             if(collisionDetected(paddle)){
+                new Audio('ping-pong.mp3').play()
                 let angle
                 let type = (marginLeft(paddle) == 30) ? 'user' : 'comp'
+                if(ball.centerY<paddle.centerY){
+                    angle = (type== 'user' ? -Math.PI/4 : (-3*Math.PI)/4)
+                }
+                else if(ball.centerY>paddle.centerY){
+                    angle = (type== 'user' ? Math.PI/4 : (3*Math.PI)/4)
+                }
+                else if(ball.centerY==paddle.centerY){
+                    angle = (type=='user' ? 0 : Math.PI)
+                }
+                V += 0.5
+                Vx = V * Math.cos(angle)
+                Vy = V * Math.sin(angle)
             }
+
+            let compLevel = 0.06
+            compPaddle.style.marginTop = `${marginTop(compPaddle)+((ball.centerY - (marginTop(compPaddle) + 36))) * compLevel}px`
 
             ball.style.marginLeft = `${marginLeft(ball)+Vx}px`
             ball.style.marginTop = `${marginTop(ball)+Vy}px`
@@ -80,6 +98,12 @@ function gameLoop(){
             }
             else if(S_Pressed && marginTop(userPaddle)<472){
                 userPaddle.style.marginTop = `${marginTop(userPaddle)+2}px`
+            }
+            if(marginTop(compPaddle)<0){
+                compPaddle.style.marginTop = '0px'
+            }
+            else if(marginTop(compPaddle)>472){
+                compPaddle.style.marginTop = '472px'
             }
         },5)
     },500);
@@ -100,7 +124,17 @@ function collisionDetected(paddle){
     paddle.centerX = marginLeft(paddle) + 5
     paddle.centerY = marginTop(paddle) + 36
 
-    return ball.left < paddle.right && ball.top < paddle.bottom && ball.right > paddle.left && ball.bottom > paddle.top
+    let type =(marginLeft(paddle) == 30) ? 'user' : 'comp'
+    let boolean = false
+
+    if(type=='user' &&  Vx<0){
+        boolean = true
+    }
+    else if(type=='comp' && Vx>0){
+        boolean = true
+    }
+
+    return ball.left < paddle.right && ball.top < paddle.bottom && ball.right > paddle.left && ball.bottom > paddle.top && boolean
 }
 
 function marginTop(elem){
