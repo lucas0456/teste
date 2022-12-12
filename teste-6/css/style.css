@@ -25,7 +25,7 @@ body {
     background-color: white;
 }
 .login-right {
-    background-color: #eee;
+    background-color: rgb(158, 158, 158);
     display: flex;
     justify-content: center;
 }
@@ -43,7 +43,7 @@ body {
     opacity: .7;
 }
 .login-form {
-    width: 450px;
+    width: 400px;
 }
 .login-form-content {
     display: flex;
@@ -68,7 +68,8 @@ body {
     text-decoration: none;
 }
 .e:hover {
-    background-color: #eee;
+    background-color: rgb(184, 184, 184);
+    transition: all .9s;
 }
 .form-item label:not(.checkboxlabel) {
     display: inline-block;
@@ -111,7 +112,7 @@ input[type='checkbox'] {
     text-transform: uppercase;
     font-size: 18px;
     height: 55px;
-    width: 350px;
+    width: 380px;
     cursor: pointer;
 }
 @media(max-width:1350px){
@@ -125,6 +126,9 @@ input[type='checkbox'] {
         flex-direction: column;
         gap: 15px;
     }
+    .b {
+        width: 280px;
+    }
 }
 @media(max-width:768px){
     body{
@@ -135,5 +139,8 @@ input[type='checkbox'] {
     }
     .login-right{
         display: none;
+    }
+    .b {
+        width: 340px;
     }
 }
