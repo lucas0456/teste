@@ -55,6 +55,15 @@ body {
     gap: 30px;
     margin-top: 70px;
 }
+#email:invalid {
+    animation: shake .3s;
+    background-color: rgb(158, 158, 158);
+}
+@keyframes shake{
+    25%{transform: translateY(5px);}
+    50%{transform: translateY(-5px);}
+    75%{transform: translateY(5px);}
+}
 .e{
     flex: 6;
     gap: 15px;
