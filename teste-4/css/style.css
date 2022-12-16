@@ -4,6 +4,17 @@
     font-family: 'Itim', cursive;
 }
 
+body::-webkit-scrollbar{
+    width: 15px;
+}
+body::-webkit-scrollbar-track{
+    background-color: #707070;
+
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #24292c;
+    border-radius: 11px;
+}
 .background {
     background-color: #12181B;
     height: 115vh;

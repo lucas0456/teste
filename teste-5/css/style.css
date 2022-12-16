@@ -11,6 +11,17 @@ body {
     font-family: 'Urbanist', sans-serif;
 }
 
+body::-webkit-scrollbar{
+    width: 15px;
+}
+body::-webkit-scrollbar-track{
+    background-color: #404457;
+
+}
+body::-webkit-scrollbar-thumb{
+    background-color: #5B85F9;
+    border-radius: 11px;
+}
 a{
 
     text-decoration: none;
