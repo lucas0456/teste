@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+    <main>
+        <div class="stepper">
+            <div class="step--1 step-active"></div>
+            <div class="step--2"></div>
+            <div class="step--3"></div>
+            <div class="step--4"></div>
+        </div>
+        <form class="form form-active">
+            <div class="form--header-container">
+                <h1 class="form--header-title">
+                    Cadastre-se
+                </h1>
+                <p class="form--header-text">
+                    Faça seu cadastro
+                </p>
+            </div>
+            <input type="text" placeholder="Name">
+            <input type="text" placeholder="E-mail">
+            <input type="text" placeholder="Senha">
+            <button class="form__btn" id="btn-1">Avançar</button>
+        </form>
+        <form class="form">
+            <div class="form--header-container">
+                <h1 class="form--header-title">
+                    Insira seus dados
+                </h1>
+                <p class="form--header-text">
+                    Continue seu cadastro
+                </p>
+            </div>
+            <input type="text" placeholder="Telefone">
+            <input type="text" placeholder="CNPJ/CPF">
+            <select name="nivel" id="nivel">
+                <option value="0">
+                    Selecione um
+                </option>
+                <option value="1">
+                    Cliente
+                </option>
+                <option value="2">
+                    Empresa
+                </option>
+            </select>
+            <br>            
+            <button class="form__btn" id="btn-2-prev">Voltar</button>
+            <button class="form__btn" id="btn-2-next">Avançar</button>
+        </form>
+        <form class="form">
+            <div class="form--header-container">
+                <h1 class="form--header-title">
+                    Meios de contato
+                </h1>
+                <p class="form--header-text">
+                    Continue seu cadastro
+                </p>
+            </div>
+            <input type="text" placeholder="Whatsapp">
+            <input type="text" placeholder="Instagram">
+            <input type="text" placeholder="E-mail">
+
+            <button class="form__btn" id="btn-3-prev">Voltar</button>
+            <button class="form__btn" id="btn-3">Enviar</button>
+        </form>
+        <div class="form--message"></div>
+    </main>
+    <script src="js/script.js"></script>
+</body>
+</html>
